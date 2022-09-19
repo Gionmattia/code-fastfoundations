@@ -1,3 +1,38 @@
+f = {"one":1, "two":2, "three":3}
+
+def task_function(input_d):
+    new_dictionary = map((lambda key,value: new_dictionary[key] == value*value), input_d.items())
+    return new_dictionary
+print(task_function(f))
+
+def square_dictionary(a_d):
+    res_d = dict()
+    for key, value in a_d.items():
+        res_d[key] = value*value
+    return res_d
+
+def main(my_dict):
+    my_dict = {}
+    sq_dict = square_dictionary(my_dict)
+    filter_dict = filter(lambda v: 70<v<100, sq_dict)
+    return filter_dict
+
+l = main(f)
+print(l)
+
+
+s = "その朝、ハビの胃はひどい音を立てていた"
+print(s)
+print(len(s))
+print(s.encode('utf-8'))
+hex = s.encode('utf-8')
+
+#hex2 = hex.replace("\x", "")
+#print(hex2)
+#print(len(hex2)
+
+
+
 string = "violet_blue|convert|red|6.3327|9.4423|113.3428|7.3298|5.3353|9.9283|over|all"
 def from_string_to_list(inpts):
     my_list = inpts.split("|")
