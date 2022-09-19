@@ -26,6 +26,10 @@ def using_filter():
     print(f"{words = }")
     print(f"{filter(lambda w: len(w) > 7, words) = }")
 
+def task_function(my_dict):
+    new_dictionary = map(lambda n: new_dictionary[n]=my_dict[n]**2, my_dict)
+    return new_dictionary
+
 
 def main():
     using_map()

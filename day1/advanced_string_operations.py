@@ -6,6 +6,7 @@ import textwrap
 
 def print_5s():
     sssss = "整理、 整頓、 清楚、 清潔、 しつけ"
+    print(len(sssss))
     print(sssss)
     print(f"{len(sssss) = }")
     sssss_bytes = sssss.encode('utf-8')
@@ -14,10 +15,11 @@ def print_5s():
 
 
 def working_with_bytes():
-    b_empty = bytes()
+    b_empty = bytes()   # We have a function to create an empty byte.
     print(f"{b_empty = }")
     print(f"{len(b_empty) = }")
-    b_random = bytes(random.choices(range(256), k=10))
+    b_random = bytes(random.choices(range(256), k=10))   #prints in hexadecimal (the "\x" means that). In hexadecimal, you can represent
+    # every byte as two characters (16*16 =256)
     print(f"{b_random = }")
     b_chars = b'the moon is shining so bright'
     print(f"{b_chars = }")
@@ -26,6 +28,7 @@ def working_with_bytes():
     # only allows 0..255
     b_fail = bytes([268])  # raises ValueError
 
+# Strings can be encoded to bytes, and bytes can be decoded to strings. A unicode decode/encode error arise when there is an error in characters/byte encoding or decoding.
 
 def print_triple_quoted():
     string = """
@@ -85,8 +88,8 @@ def slicing_and_dicing_strings(string, tail=" ><|()[]"):
     split_sentence = sentence.split('|')
     print(f"{split_sentence = }")
     # partition
-    print(f"{sentence.partition('you') = }")
-    # join
+    print(f"{sentence.partition('you') = }")  #it returns all the parts, while split removes the partition itself.
+    # join  # You can join the string back again
     print(f"{' '.join(split_sentence) = }")
 
 
@@ -165,7 +168,7 @@ def main():
     # print_triple_quoted()
     # string_search('who')
     # string_is_properties(input())
-    # slicing_and_dicing_strings(input())
+    slicing_and_dicing_strings(input())
     # string_method_formatting(input())
     # string_format_minilanguage()
     return 0
@@ -173,3 +176,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+
