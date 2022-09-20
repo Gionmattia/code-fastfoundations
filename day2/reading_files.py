@@ -65,7 +65,7 @@ def working_with_paths():
 
 
 def testing_paths():
-    import pathlib
+    import pathlib  # interesting to test paths and directories
     my_path = pathlib.Path("..")  # the parent directory
     print(f"{my_path.exists() = }")
     print(f"{my_path.is_dir() = }")

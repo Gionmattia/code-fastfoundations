@@ -37,7 +37,7 @@ def creating_and_modifying_paths():
         print(f"{datetime.datetime.now() = }\n", file=f)  # another way to write to a file
     print(f"{str(my_path.absolute()):{col1}}: {my_path.exists() = }")
     # my_path.parent.rmdir() # FileExistsError
-    my_path.unlink()
+    my_path.unlink()    # THIS IS A SYSTEM CALL -> it's basically giving instructions (DELETE THE FILE) to the OS. That's why the weird name
     print(f"{str(my_path.absolute()):{col1}}: {my_path.exists() = }")
     my_path.parent.rmdir()
     print(f"{str(my_path.parent.absolute()):{col1}}: {my_path.parent.exists() = }")
