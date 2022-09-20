@@ -115,4 +115,13 @@ def split_by_chromosome():
                         f.write(str(every) + "\n")
 
 
-split_by_chromosome()
+#split_by_chromosome()
+
+def zip_zap_zop():
+    import gzip    # BELOW: open the original fine, then create the compressed file. For every line of the original, compress it and write it to the compressed file.
+    with open ("/home/gionmattia/Desktop/code-fastfoundations/day2/Homo_sapiens.GRCh38.107.shuffled_and_truncated.gtf") as f, gzip.open("Homo_sapiens.GRCh38.107.shuffled_and_truncated.gz", "wb") as g:
+        for rows in f:
+            g.write(rows.encode("utf-8"))
+
+# zip_zap_zop()
+
