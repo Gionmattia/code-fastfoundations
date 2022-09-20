@@ -154,4 +154,14 @@ def random_numbers():
         numbs.append(1/random.randint(1,200))
     print(numbs)
 
-random_numbers()
+# random_numbers()
+def find_it():
+    import subprocess
+    import shlex
+    process = subprocess.run(shlex.split("find . -name ‘*paradoxical.*’ -type f"))
+    print(f"{process = }")
+    print(f"{process.returncode = }")
+
+# find_it()
+
+map()
