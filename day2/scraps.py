@@ -1,3 +1,6 @@
+import random
+
+
 def reading_wagata():
     with open("wagata.txt", encoding = "utf-32") as f:
         print(f.read())
@@ -83,6 +86,21 @@ def third_task_function():
 
 # third_task_function()
 
+def third_task_functionv2():  # This should be a bit more efficient, computationally speaking, because I am not splitting right away, but removing the strings without "exon".
+    # Technically, this should save me some time, if I am right. Would be interesting to check the execution time and compare.
+    with open("Homo_sapiens.GRCh38.107.abinitio.gtf") as f:
+        for row in f:
+            if row.startswith("#"):
+                continue
+            if "exon" not in row:
+                continue
+            cols = row.strip().split("\t")
+            cols.append(int(cols[4]) - int(cols[3]))
+            print(cols)
+
+# third_task_functionv2()
+
+
 def troubleshoot_task():
     data = range(10)
     with open("file.txt", "w") as f:
@@ -125,3 +143,15 @@ def zip_zap_zop():
 
 # zip_zap_zop()
 
+x = "Write a function to write a stream of 1000 random integers between 0 and 200 followed by 1000 random floating between 0 and 1 to a file."
+
+def random_numbers():
+    import random
+    numbs = []
+    for each in range(1000):
+        numbs.append(random.randint(0,200))
+    for each in range(1000):
+        numbs.append(1/random.randint(1,200))
+    print(numbs)
+
+random_numbers()
