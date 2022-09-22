@@ -1,3 +1,6 @@
+import turtle
+
+
 class Circle:
     units = 'cm'  # all circles will have the same units
 
@@ -78,5 +81,13 @@ class Text:
         self.position = position # the position
         self.colour = colour # colour of the text
         self.size = size # size of the text
+
+
+canvas = turtle.getcanvas()
+tscreen = turtle.TurtleScreen(canvas)
+#tscreen.screensize(canvwidth,canvheight, bg)
+
+
+
 
 

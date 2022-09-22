@@ -96,10 +96,17 @@ class Rectangle:
                f" a bounding box values of: {self.bounding_box()}")
 
 donald = Rectangle(4,6)
-print(donald)
+# print(donald)
 
 class Canvas:
     def __init__(self, height, width, fill = "white"):
         self.height = height
         self.width = width
         self.fill = fill
+
+class Square(Rectangle):
+    def __init__(self, width):
+        super().__init__(width, width)
+
+l = Square(4)
+print(l.area)
