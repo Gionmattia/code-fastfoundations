@@ -38,6 +38,43 @@ def draw_pentagon():
         turtle.color("blue")
         turtle.end_fill()
 
+class Circle:
+    units = 'cm'  # all circles will have the same units
+
+    def __init__(self, radius, position=(0, 0), fill = "white", stroke = "black"):
+        self.radius = radius  # each circle will have a particular radius
+        self.position = position
+        self.area = 3.14*(radius**2)
+        self.diameter = radius*2
+        self.fill = fill
+        self.stroke = stroke
+
+    def __str__(self):  # Python special methods
+        return f"I am a circle of size {self.radius}{self.units} located at {self.position}. Diameter is {self.diameter}, area is {self.area}"
+
+    def peri(self):
+        perimeter = 3.14 * 2 * self.radius
+        return perimeter
+
+    def arc_length(self, theta, radians=True):
+        if radians == True:
+            return self.radius * theta
+        if radians == False:
+            return self.radius * (theta / 180)
+
+    def outbound_box(self):
+        x_min = self.position[0] - self.radius
+        x_max = self.position[0] + self.radius
+        y_min = self.position[1] - self.radius
+        y_max = self.position[1] + self.radius
+        return x_min, x_max, y_min, y_max
+
+    def draw(self, pen):
+        pen.up()
+        pen.goto(self.position[0], self.position[1])
+        pen.down()
+        pen.circle(self.radius)
+
 class Canvas(turtle.TurtleScreen):
 
 
@@ -62,22 +99,14 @@ class Canvas(turtle.TurtleScreen):
         self.pen.up()
         self.pen.home()
 
-    def draw_circle(self,circle):
-        pen = turtle.Turtle()
-        super().__init__(pen.circle()) # Still no colour
+    #def draw_circle(self,circle):
+    #    pen = turtle.Turtle()
+    #    super().__init__(pen.circle()) # Still no colour
 
     def draw(self, shape):
-        circle.draw(self.shape)
-        if pen.isdown():
-            pen.up()
-        pen.goto(0, 0)
-        pen.down()
-        pen.begin_fill()
-        pen.pencolor(self.stroke)
-        pen.fillcolor(self.fill)
-        pen.circle(self.radius)
-        pen.end_fill()
-        pen.up()
+        shape.draw(self.pen)
+
+
 
 def main():
     #draw_rectangle()
@@ -85,9 +114,9 @@ def main():
     #draw_triangle()
     #draw_pentagon()
     canvas = Canvas(100,100)
-    print(canvas.mystery_method())
-    print(canvas.pen.circle(100))
+    print(canvas.draw(Circle))
     turtle.done()
+
     return 0
 
 
