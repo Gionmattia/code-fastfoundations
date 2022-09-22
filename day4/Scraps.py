@@ -8,6 +8,9 @@ class CLASS:
         self.spellcaster = spellcaster
 
     def get_p_bonus(self):
+        """
+        Retrieves the proficiency bonus of the class, basend on its level attribute
+        """
         lvl = self.level
         if lvl < 5:
             return 2
@@ -21,6 +24,8 @@ class CLASS:
             return 6
 
     # Introduce proficiency bonus as subfunction of level
+
+
 
 fighter = CLASS()
 print(fighter.get_p_bonus())
@@ -62,6 +67,6 @@ goofy = Circle(15, (1,1))
 # Assigning a radius to goofy
 print(goofy.area)
 
-
+print(goofy.arc_length(90, False))
 
 print(goofy.outbound_box())
