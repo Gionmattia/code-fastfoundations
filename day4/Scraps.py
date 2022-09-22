@@ -2,7 +2,7 @@
 
 # I should follow the class examples, but they are boring, so I decided to build a D&D character buildier prototipe using OOP.
 
-class CLASS:
+class Class:
     def __init__(self, level = 1, spellcaster = False):
         self.level = level
         self.spellcaster = spellcaster
@@ -27,20 +27,22 @@ class CLASS:
 
 
 
-fighter = CLASS()
-print(fighter.get_p_bonus())
-#print(fighter.level)
-#print(fighter.spellcaster)
-#print(fighter.proficiency)
+# fighter = CLASS()
+# print(fighter.get_p_bonus())
+# print(fighter.level)
+# print(fighter.spellcaster)
+# print(fighter.proficiency)
 
 class Circle:
     units = 'cm'  # all circles will have the same units
 
-    def __init__(self, radius, position=(0, 0)):
+    def __init__(self, radius, position=(0, 0), fill = "white", stroke = "black"):
         self.radius = radius  # each circle will have a particular radius
         self.position = position
         self.area = 3.14*(radius**2)
         self.diameter = radius*2
+        self.fill = fill
+        self.stroke = stroke
 
     def __str__(self):  # Python special methods
         return f"I am a circle of size {self.radius}{self.units} located at {self.position}. Diameter is {self.diameter}, area is {self.area}"
@@ -62,11 +64,42 @@ class Circle:
         y_max = self.position[1] + self.radius
         return x_min, x_max, y_min, y_max
 
-# Creating goofy as an element of the circle class
-goofy = Circle(15, (1,1))
-# Assigning a radius to goofy
-print(goofy.area)
 
-print(goofy.arc_length(90, False))
+class Rectangle:
+    def __init__(self, width, height, fill = "white", stroke = "black", position=(0, 0)):
+        self.width = width
+        self.height = height
+        self.position = position
+        self.fill = fill
+        self.stroke = stroke
 
-print(goofy.outbound_box())
+    def area(self):
+        return self.width*self.height
+
+    def perimeter(self):
+        return 2*self.width + 2*self.height
+
+    def diagonal(self):
+        d = (self.width**2 + self.height**2)**(1/2)
+        d = round(d, 3)
+        return d
+
+    def bounding_box(self):
+        x_min = self.position[0] - self.width/2
+        x_max = self.position[0] + self.width/2
+        y_min = self.position[1] - self.height/2
+        y_max = self.position[1] + self.height/2
+        return x_min, x_max, y_min, y_max
+
+    def __str__(self):
+        return(f"I am a geometrical shape with perimeter of {self.perimeter()}, diagonal of {self.diagonal()}, and with"
+               f" a bounding box values of: {self.bounding_box()}")
+
+donald = Rectangle(4,6)
+print(donald)
+
+class Canvas:
+    def __init__(self, height, width, fill = "white"):
+        self.height = height
+        self.width = width
+        self.fill = fill
