@@ -67,42 +67,16 @@ print(donald)
 
 
 class Canvas:
-    def __init__(self, height, width, fill="white"):
+    def __init__(self, height, width):
         self.height = height
         self.width = width
-        self.fill = fill
 
+class Text:
 
-class Rectangle:
-    def __init__(self, width, height, fill = "white", stroke = "black", position=(0, 0)):
-        self.width = width
-        self.height = height
-        self.position = position
-        self.fill = fill
-        self.stroke = stroke
+    def __init__(self, message, colour, size, position = (0,0)):
+        self.message = message # The actual text
+        self.position = position # the position
+        self.colour = colour # colour of the text
+        self.size = size # size of the text
 
-    def area(self):
-        return self.width*self.height
-
-    def perimeter(self):
-        return 2*self.width + 2*self.height
-
-    def diagonal(self):
-        d = (self.width**2 + self.height**2)**(1/2)
-        d = round(d, 3)
-        return d
-
-    def bounding_box(self):
-        x_min = self.position[0] - self.width/2
-        x_max = self.position[0] + self.width/2
-        y_min = self.position[1] - self.height/2
-        y_max = self.position[1] + self.height/2
-        return x_min, x_max, y_min, y_max
-
-    def __str__(self):
-        return(f"I am a geometrical shape with perimeter of {self.perimeter()}, diagonal of {self.diagonal()}, and with"
-               f" a bounding box values of: {self.bounding_box()}")
-
-donald = Rectangle(4,6)
-print(donald)
 

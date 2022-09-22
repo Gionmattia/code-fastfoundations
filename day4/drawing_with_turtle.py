@@ -3,13 +3,13 @@ import turtle
 
 
 def draw_rectangle():
-    turtle.forward(30)
+    turtle.forward(310)
     turtle.right(90)
-    turtle.forward(10)
+    turtle.forward(180)
     turtle.right(90)
-    turtle.forward(30)
+    turtle.forward(310)
     turtle.right(90)
-    turtle.forward(10)
+    turtle.forward(180)
 
 
 def draw_circle():
@@ -25,10 +25,25 @@ def draw_circle():
     pen.end_fill()
     pen.up()
 
+def draw_triangle():
+    for i in range(3):
+        turtle.forward(100)
+        turtle.right(120)
+
+def draw_pentagon():
+    for i in range(5):
+        turtle.begin_fill()
+        turtle.forward(100)
+        turtle.right(72)
+        turtle.color("blue")
+        turtle.end_fill()
+
 
 def main():
-    draw_rectangle()
-    draw_circle()
+    #draw_rectangle()
+    #draw_circle()
+    draw_triangle()
+    draw_pentagon()
     turtle.done()
     return 0
 
